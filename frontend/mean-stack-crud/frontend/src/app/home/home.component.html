@@ -1,0 +1,56 @@
+<div class="my-3" style="text-align: center"><h2>MEAN CURD</h2></div>
+<div>
+  <div class="my-3">
+    <label for="exampleInputName" class="form-label">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputName"
+      [(ngModel)]="formName"
+    />
+  </div>
+  <div class="my-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="exampleInputEmail1"
+      [(ngModel)]="formEmail"
+    />
+  </div>
+  <button type="button" (click)="handleSubmit()" class="btn btn-primary">
+    Submit
+  </button>
+  <button type="button" (click)="UpdateSubmit()" class="btn btn-primary mx-2">
+    Update
+  </button>
+</div>
+<div class="my-5">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">no</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">delete</th>
+        <th scope="col">Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of dataList; let no = index">
+        <th scope="row">{{ no + 1 }}</th>
+        <td>{{ i.name }}</td>
+        <td>{{ i.email }}</td>
+        <td (click)="deleteUser(i._id)">
+          <i class="bi bi-trash" style="color: red; cursor: pointer"></i>
+        </td>
+        <td (click)="editUser(i._id)">
+          <i
+            class="bi bi-pencil-square"
+            style="color: green; cursor: pointer"
+          ></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
